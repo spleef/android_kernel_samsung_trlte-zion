@@ -25,8 +25,6 @@
 #include <linux/regulator/consumer.h>
 #include <linux/mm.h>
 
-extern int boost_level;
-
 /* The number of memstore arrays limits the number of contexts allowed.
  * If more contexts are needed, update multiple for MEMSTORE_SIZE
  */

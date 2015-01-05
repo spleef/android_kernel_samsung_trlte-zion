@@ -25,7 +25,6 @@
 #ifdef CONFIG_HAS_EARLYSUSPEND
 #include <linux/earlysuspend.h>
 #endif
-#include <linux/cpufreq_kt.h>
 
 #include "mdss_dsi.h"
 #include "mdss_samsung_dsi_panel_common.h"
@@ -2377,10 +2376,6 @@ static int mdss_dsi_panel_on(struct mdss_panel_data *pdata)
 	static struct mdss_panel_alpm_data *alpm_data = NULL;
 	struct mdss_panel_info *pinfo;
 
-	set_screen_on_off_mhz(true);
-	if (ktoonservative_is_active)
-		ktoonservative_screen_is_on(true);
-
 	if (pdata == NULL) {
 		pr_err("%s: Invalid input data\n", __func__);
 		return -EINVAL;
@@ -2548,10 +2543,6 @@ static int mdss_dsi_panel_off(struct mdss_panel_data *pdata)
 	struct mdss_dsi_ctrl_pdata *ctrl = NULL;
 	static struct mdss_panel_alpm_data *alpm_data = NULL;
 	struct mdss_panel_info *pinfo;
-
-	set_screen_on_off_mhz(false);
-	if (ktoonservative_is_active)
-		ktoonservative_screen_is_on(false);
 
 	if (pdata == NULL) {
 		pr_err("%s: Invalid input data\n", __func__);
