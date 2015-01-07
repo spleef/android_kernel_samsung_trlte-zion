@@ -84,7 +84,7 @@ struct delayed_work set_cpu_min_max_work;
 static DEFINE_MUTEX(core_control_mutex);
 
 static unsigned int Lenable_auto_hotplug = 0;
-extern void apenable_auto_hotplug(bool state);
+//extern void apenable_auto_hotplug(bool state);
 
 //Kthermal limit holder to stop govs from setting CPU speed higher than the thermal limit
 struct cpufreq_policy trmlpolicy[10];
@@ -967,7 +967,7 @@ static ssize_t store_enable_auto_hotplug(struct cpufreq_policy *policy,
 	unsigned int ret;
 	ret = sscanf(buf, "%u", &val);
 	Lenable_auto_hotplug = val;
-	apenable_auto_hotplug((bool) Lenable_auto_hotplug);
+	//apenable_auto_hotplug((bool) Lenable_auto_hotplug);
 	return count;
 }
 
